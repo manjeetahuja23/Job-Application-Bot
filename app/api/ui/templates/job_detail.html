@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}{{ job.title }} · {{ job.company }}{% endblock %}
+{% block content %}
+  <article class="bg-white shadow-sm rounded-xl border border-slate-200 p-6 space-y-4">
+    <header class="border-b border-slate-200 pb-4">
+      <h2 class="text-2xl font-semibold text-slate-900">{{ job.title }}</h2>
+      <p class="text-sm text-slate-600 flex flex-wrap gap-3 mt-2">
+        <span class="font-medium text-slate-800">{{ job.company }}</span>
+        <span>{{ job.location or 'Remote friendly' }}</span>
+        {% if job.remote %}<span class="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">Remote</span>{% endif %}
+        {% if job.score is not none %}
+          <span class="inline-flex items-center rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700">Score {{ '%.2f'|format(job.score) }}</span>
+        {% endif %}
+      </p>
+      <a href="{{ job.url }}" class="text-sm text-indigo-700 hover:underline" target="_blank" rel="noopener">View original posting</a>
+    </header>
+
+    <section class="prose prose-slate max-w-none">
+      {{ job.description_html | safe }}
+    </section>
+
+    <section class="border-t border-slate-200 pt-4">
+      {% if profile %}
+        <button
+          type="button"
+          class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+          hx-post="/jobs/{{ job.id }}/tailor?profile_id={{ profile.id }}"
+          hx-target="#tailor-result"
+          hx-swap="innerHTML"
+        >
+          Generate tailored documents
+        </button>
+        <div id="tailor-result" class="mt-4 text-sm text-slate-700"></div>
+      {% else %}
+        <p class="text-sm text-slate-600">No profile available yet. Create one in settings to tailor documents.</p>
+      {% endif %}
+    </section>
+  </article>
+{% endblock %}
