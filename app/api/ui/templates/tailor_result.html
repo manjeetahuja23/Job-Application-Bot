@@ -1,0 +1,10 @@
+<div class="bg-indigo-50 border border-indigo-200 rounded-md p-4 space-y-2">
+  <p class="font-medium text-indigo-800">Tailored documents ready for download.</p>
+  <div class="flex flex-wrap gap-3 text-sm">
+    <a href="/documents/{{ document.document_id }}/download?kind=resume&fmt=md" class="px-3 py-2 bg-white border border-indigo-200 rounded-md text-indigo-700 hover:bg-indigo-100">Resume (Markdown)</a>
+    <a href="/documents/{{ document.document_id }}/download?kind=resume&fmt=txt" class="px-3 py-2 bg-white border border-indigo-200 rounded-md text-indigo-700 hover:bg-indigo-100">Resume (Text)</a>
+    <a href="/documents/{{ document.document_id }}/download?kind=cover&fmt=md" class="px-3 py-2 bg-white border border-indigo-200 rounded-md text-indigo-700 hover:bg-indigo-100">Cover letter (Markdown)</a>
+    <a href="/documents/{{ document.document_id }}/download?kind=cover&fmt=txt" class="px-3 py-2 bg-white border border-indigo-200 rounded-md text-indigo-700 hover:bg-indigo-100">Cover letter (Text)</a>
+  </div>
+  <p class="text-xs text-slate-600">Keywords: {{ document.keywords | join(', ') }}</p>
+</div>
