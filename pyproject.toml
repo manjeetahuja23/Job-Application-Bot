@@ -1,59 +1,36 @@
+cat > pyproject.toml <<'TOML'
 [build-system]
-requires = ["setuptools>=67", "wheel"]
+requires = ["setuptools>=75", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "autojob-bot"
+name = "job-application-bot"
 version = "0.1.0"
-description = "Autonomous job application assistant"
-authors = [{ name = "autojob-bot" }]
+description = "Automated job discovery and tailored application generator"
 readme = "README.md"
+authors = [{ name = "Manjeet Ahuja" }]
 requires-python = ">=3.11"
-license = { text = "MIT" }
+license = "MIT"
 dependencies = [
-    "fastapi",
-    "uvicorn[standard]",
-    "sqlalchemy",
-    "alembic",
-    "pydantic-settings",
-    "redis",
-    "celery[redis]",
-    "python-dotenv",
-    "httpx",
-    "beautifulsoup4",
-    "lxml",
-    "feedparser",
-    "structlog",
-    "numpy",
-    "scikit-learn",
-    "email-validator",
-    "python-dateutil",
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.29",
+  "httpx>=0.27",
+  "SQLAlchemy>=2.0",
+  "alembic>=1.13",
+  "psycopg2-binary>=2.9",
+  "celery>=5.4",
+  "redis>=5.0",
+  "jinja2>=3.1",
+  "pydantic>=2.6",
+  "beautifulsoup4>=4.12",
+  "feedparser>=6.0",
+  "scikit-learn>=1.4",
+  "structlog>=24.1"
 ]
 
-[project.optional-dependencies]
-dev = [
-    "black",
-    "ruff",
-    "isort",
-    "pytest",
-    "pytest-asyncio",
-]
+[tool.setuptools]
+packages = ["app", "cli"]
 
-[tool.black]
-line-length = 88
-target-version = ["py311"]
-
-[tool.isort]
-profile = "black"
-line_length = 88
-
-[tool.ruff]
-line-length = 88
-target-version = "py311"
-select = ["E", "F", "I", "B", "UP", "S", "N", "ANN", "COM", "Q", "W"]
-ignore = ["ANN101", "ANN102"]
-
-[tool.pytest.ini_options]
-minversion = "7.0"
-addopts = "-ra"
-testpaths = ["tests"]
+[project.scripts]
+aj = "cli.aj:main"
+TOML
