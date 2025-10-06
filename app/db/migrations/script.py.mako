@@ -1,0 +1,20 @@
+"""Template for Alembic migration scripts."""
+<%!
+    from alembic import op
+    import sqlalchemy as sa
+%>
+
+revision = ${repr(revision)}
+down_revision = ${repr(down_revision)}
+branch_labels = ${repr(branch_labels)}
+depends_on = ${repr(depends_on)}
+
+
+def upgrade() -> None:
+    """Apply upgrade migrations."""
+    pass
+
+
+def downgrade() -> None:
+    """Revert upgrade migrations."""
+    pass
