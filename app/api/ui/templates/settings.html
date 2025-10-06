@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Profile settings · autojob-bot{% endblock %}
+{% block content %}
+  <section class="bg-white shadow-sm rounded-xl border border-slate-200 p-6">
+    <h2 class="text-xl font-semibold mb-4">Profile preferences</h2>
+    {% if saved %}
+      <div class="mb-4 rounded-md bg-emerald-50 border border-emerald-200 px-4 py-3 text-sm text-emerald-800">Profile saved successfully.</div>
+    {% endif %}
+    <form method="post" class="grid gap-4">
+      <label class="flex flex-col text-sm font-medium text-slate-700">
+        Skills
+        <textarea name="skills" rows="4" class="mt-1 rounded-md border-slate-300 focus:border-indigo-500 focus:ring-indigo-500">{{ profile.skills }}</textarea>
+      </label>
+      <label class="flex flex-col text-sm font-medium text-slate-700">
+        Keywords (comma separated)
+        <input type="text" name="keywords" value="{{ profile.keywords }}" class="mt-1 rounded-md border-slate-300 focus:border-indigo-500 focus:ring-indigo-500" />
+      </label>
+      <label class="flex flex-col text-sm font-medium text-slate-700">
+        Geographic preference
+        <input type="text" name="geo_preference" value="{{ profile.geo_preference }}" class="mt-1 rounded-md border-slate-300 focus:border-indigo-500 focus:ring-indigo-500" />
+      </label>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <label class="flex flex-col text-sm font-medium text-slate-700">
+          Minimum salary (annual)
+          <input type="number" name="salary_min" value="{{ profile.salary_min or '' }}" class="mt-1 rounded-md border-slate-300 focus:border-indigo-500 focus:ring-indigo-500" />
+        </label>
+        <label class="flex flex-col text-sm font-medium text-slate-700">
+          Maximum salary (annual)
+          <input type="number" name="salary_max" value="{{ profile.salary_max or '' }}" class="mt-1 rounded-md border-slate-300 focus:border-indigo-500 focus:ring-indigo-500" />
+        </label>
+      </div>
+      <div class="flex gap-3">
+        <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Save changes</button>
+        <a href="/" class="px-4 py-2 bg-slate-100 text-slate-700 rounded-md hover:bg-slate-200">Back to dashboard</a>
+      </div>
+    </form>
+  </section>
+{% endblock %}

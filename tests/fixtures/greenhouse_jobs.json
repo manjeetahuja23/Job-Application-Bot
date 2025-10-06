@@ -1,0 +1,26 @@
+{
+  "jobs": [
+    {
+      "id": 123,
+      "title": "Senior WordPress Engineer",
+      "content": "<p>Build performant sites.</p><ul><li>Deliver features</li><li>Review code</li></ul>",
+      "absolute_url": "https://boards.greenhouse.io/example/jobs/123",
+      "location": {"name": "Remote - Canada"},
+      "metadata": [{"name": "Employment Type", "value": "Full-time"}],
+      "departments": [{"name": "Engineering"}],
+      "offices": [{"name": "Remote"}],
+      "updated_at": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": 456,
+      "title": "Frontend Developer",
+      "content": "<p>Craft UI.</p>",
+      "absolute_url": "https://boards.greenhouse.io/example/jobs/456",
+      "location": {"name": "Toronto, Canada"},
+      "metadata": [{"name": "Team", "value": "Product"}],
+      "departments": [{"name": "Design"}],
+      "offices": [{"name": "Toronto"}],
+      "created_at": "2024-01-15T09:30:00Z"
+    }
+  ]
+}
