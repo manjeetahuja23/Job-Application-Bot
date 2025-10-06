@@ -9,7 +9,7 @@ description = "Autonomous job application assistant"
 authors = [{ name = "autojob-bot" }]
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "MIT" }
+license = "MIT"  
 dependencies = [
     "fastapi",
     "uvicorn[standard]",
