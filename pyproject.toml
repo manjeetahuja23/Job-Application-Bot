@@ -27,7 +27,7 @@ dependencies = [
   "structlog>=24.1"
 ]
 
-# Explicit discovery: only these top-level packages
+# ✅ Correct way: tell setuptools exactly which top-level packages to include
 [tool.setuptools.packages.find]
 include = ["app", "cli"]
 namespaces = false
