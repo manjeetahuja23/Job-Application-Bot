@@ -27,10 +27,10 @@ dependencies = [
   "structlog>=24.1"
 ]
 
-# 👇 Explicit discovery: app + cli
-[tool.setuptools]
-packages = ["app", "cli"]
+# Explicit discovery: only these top-level packages
+[tool.setuptools.packages.find]
+include = ["app", "cli"]
+namespaces = false
 
-# Optional CLI entrypoint
 [project.scripts]
 aj = "cli.aj:main"

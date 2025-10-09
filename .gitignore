@@ -9,3 +9,6 @@ venv/
 .env
 /storage/
 .DS_Store
+
+# packaging artifacts
+*.egg-info/
